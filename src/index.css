@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f140f;
+  background-color: #fffaf1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fffaf1 0%, #fff5e6 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+#root { min-height: 100vh; }
+
+.glass-card {
+  @apply rounded-3xl border border-white/40 bg-white/70 backdrop-blur-xl shadow-xl;
+}
+
+.dark .glass-card {
+  @apply border-white/10 bg-slate-900/70;
+}
