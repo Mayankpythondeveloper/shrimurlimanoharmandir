@@ -58,17 +58,38 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card-elegant contact-card h-100">
             <h4>Send a Message</h4>
-            <form action="https://formspree.io/f/mpqvqkwl" method="POST">
-              <div class="mb-3"><input class="form-control" name="name" placeholder="Name" required /></div>
-              <div class="mb-3"><input class="form-control" name="phone" placeholder="Phone" /></div>
-              <div class="mb-3"><input class="form-control" name="email" type="email" placeholder="Email" required /></div>
-              <div class="mb-3"><textarea class="form-control" name="message" rows="4" placeholder="Message" required></textarea></div>
-              <button class="btn btn-gold w-100" type="submit">Submit</button>
-            </form>
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+    <div class="mb-3"><input class="form-control" id="name" name="name" placeholder="Name" required /></div>
+    <div class="mb-3"><input class="form-control" id="phone" name="phone" placeholder="Phone" required /></div>
+    <div class="mb-3"><input class="form-control" id="email" name="email" type="email" placeholder="Email" /></div>
+    <div class="mb-3"><textarea class="form-control" id="message" name="message" rows="4" placeholder="Message" required></textarea></div>
+    <button class="btn btn-gold w-100" type="submit">Submit</button>
+</form>
           </div>
         </div>
       </div>
     </main>
+
+     <script>
+function sendToWhatsApp(event) {
+    event.preventDefault();
+    let name = document.getElementById('name').value;
+    let phone = document.getElementById('phone').value;
+    let email = document.getElementById('email').value;
+    let message = document.getElementById('message').value;
+
+    let myWhatsAppNumber = "919235608105"; // Yahan apna WhatsApp number daal dein (jaise 919876543210)
+
+    let whatsappText = `New Message from Temple Website:%0A` +
+                       `*Name:* ${name}%0A` +
+                       `*Phone:* ${phone}%0A` +
+                       `*Email:* ${email}%0A` +
+                       `*Message:* ${message}`;
+
+    let whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${whatsappText}`;
+    window.open(whatsappURL, '_blank');
+}
+</script>
 
     <footer class="footer">
       <div class="container text-center">
