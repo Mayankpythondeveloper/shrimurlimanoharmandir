@@ -73,7 +73,76 @@
 
     <main>
 
-      
+      <!-- Radhe Radhe Moving Marquee Section (Right to Left) -->
+<div class="radhe-marquee-container py-3 position-relative overflow-hidden">
+    <div class="marquee-track">
+        <!-- Repeat items for a continuous loop -->
+        <span class="marquee-item">🌸 Radhe Radhe 🌸</span>
+        <span class="marquee-item">🦚 Hare Krishna 🦚</span>
+        <span class="marquee-item">🌸 Jai Shri Krishna 🌸</span>
+        <span class="marquee-item">🌼 Radhe Radhe 🌼</span>
+        <span class="marquee-item">🌸 Radhe Radhe 🌸</span>
+        <span class="marquee-item">🦚 Hare Krishna 🦚</span>
+        <span class="marquee-item">🌸 Jai Shri Krishna 🌸</span>
+        <span class="marquee-item">🌼 Radhe Radhe 🌼</span>
+    </div>
+</div>
+<style>
+/* Marquee Container Styling */
+.radhe-marquee-container {
+    background: linear-gradient(90deg, #fff3cd, #ffeeba, #fff3cd);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+}
+/* Marquee Track and Animation (Right to Left) */
+.marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollRightToLeft 25s linear infinite;
+}
+/* Individual Text Item Style */
+.marquee-item {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #856404;
+    padding: 0 40px;
+    letter-spacing: 1px;
+    font-family: inherit;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* Keyframes for Right to Left Movement */
+@keyframes scrollRightToLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* Pause animation on mouse hover */
+.radhe-marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+/* Night Mode (Dark Theme) Support */
+[data-theme="dark"] .radhe-marquee-container,
+body.dark-mode .radhe-marquee-container,
+.dark .radhe-marquee-container {
+    background: linear-gradient(90deg, #1a1a1e, #24242b, #1a1a1e) !important;
+    border-top: 1px solid rgba(255, 215, 0, 0.2) !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .radhe-marquee-container .marquee-item,
+body.dark-mode .radhe-marquee-container .marquee-item,
+.dark .radhe-marquee-container .marquee-item {
+    color: #ffd700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+</style>
       
 
       <section class="container py-5" id="darshan">
