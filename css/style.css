@@ -699,13 +699,3 @@ body {
     font-size: 0px !important;
     color: transparent;
 }
-/* Mobile Overflow Fix */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-img, video, .container, .row {
-    max-width: 100%;
-    box-sizing: border-box;
-}
