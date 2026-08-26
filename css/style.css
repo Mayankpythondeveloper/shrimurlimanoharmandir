@@ -709,3 +709,45 @@ img, video, .container, .row {
     max-width: 100%;
     box-sizing: border-box;
 }
+
+
+.scene-container {
+    width: 220px;
+    height: 220px;
+    margin: 40px auto;
+    perspective: 1000px;
+    cursor: grab;
+}
+.scene-container:active {
+    cursor: grabbing;
+}
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-110px);
+}
+.cube-face {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.cube-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cube 3D Positioning */
+.cube-face.front  { transform: rotateY(0deg) translateZ(110px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(110px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(110px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(110px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(110px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(110px); }
