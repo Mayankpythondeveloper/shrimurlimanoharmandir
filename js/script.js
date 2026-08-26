@@ -185,3 +185,65 @@ document.addEventListener('DOMContentLoaded', () => {
     breakpoints: { 768: { slidesPerView: 2 } }
   });
 });
+const cube = document.getElementById('imageCube');
+let isDragging = false;
+let startX, startY;
+let currentX = -20; // Initial angle
+let currentY = 20;  // Initial angle
+let autoSpin = true;
+
+// Initial position set karein
+cube.style.transform = `translateZ(-110px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+
+// Drag Start (Mouse / Touch)
+function dragStart(e) {
+    isDragging = true;
+    autoSpin = false; // Drag karte hi auto-spin ruk jayega
+    startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    startY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+}
+
+// Drag Move
+function dragMove(e) {
+    if (!isDragging) return;
+    const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    const y = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+    
+    const deltaX = x - startX;
+    const deltaY = y - startY;
+    
+    currentX += deltaX * 0.6;
+    currentY -= deltaY * 0.6;
+    
+    cube.style.transform = `translateZ(-110px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+    
+    startX = x;
+    startY = y;
+}
+
+// Drag End
+function dragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    // Kuch der baad wapas auto-spin shuru karne ke liye (optional)
+    setTimeout(() => { autoSpin = true; }, 4000);
+}
+
+// Auto Right-to-Left Spin Loop
+function animateCube() {
+    if (autoSpin && !isDragging) {
+        currentX -= 0.5; // Speed control
+        cube.style.transform = `translateZ(-110px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+    }
+    requestAnimationFrame(animateCube);
+}
+animateCube();
+
+// Event Listeners
+cube.addEventListener('mousedown', dragStart);
+window.addEventListener('mousemove', dragMove);
+window.addEventListener('mouseup', dragEnd);
+
+cube.addEventListener('touchstart', dragStart);
+window.addEventListener('touchmove', dragMove);
+window.addEventListener('touchend', dragEnd);
